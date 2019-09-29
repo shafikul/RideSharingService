@@ -2,10 +2,16 @@
  * CREATE Script for init of DB
  */
 
--- Create 3 OFFLINE drivers
+-- Create 2 cars
+insert into cars (car_id, license_plate, seat_count, convertible, rating, engine_type, manufacturer,
+ updated_at, date_created, deleted) values(1, 'GA#1216', 8, true, 4.5,'GASOLINE', 'BMW', now(), now(), false);
 
-insert into driver (id, date_created, deleted, online_status, password, username) values (1, now(), false, 'OFFLINE',
-'driver01pw', 'driver01');
+insert into cars (car_id, license_plate, seat_count, convertible, rating, engine_type, manufacturer,
+ updated_at, date_created, deleted) values(2, 'GA#1217', 4, true, 5,'ELECTRIC', 'BMW', now(), now(), true );
+
+-- Create 3 OFFLINE drivers
+insert into driver (id, date_created, deleted, online_status, password, username, car_id) values (1, now(), false, 'OFFLINE',
+'driver01pw', 'driver01', 1);
 
 insert into driver (id, date_created, deleted, online_status, password, username) values (2, now(), false, 'OFFLINE',
 'driver02pw', 'driver02');

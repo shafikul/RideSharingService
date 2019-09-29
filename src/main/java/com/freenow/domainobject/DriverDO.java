@@ -3,15 +3,7 @@ package com.freenow.domainobject;
 import com.freenow.domainvalue.GeoCoordinate;
 import com.freenow.domainvalue.OnlineStatus;
 import java.time.ZonedDateTime;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,7 +16,8 @@ public class DriverDO
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private Long id;
 
     @Column(nullable = false)
@@ -53,6 +46,10 @@ public class DriverDO
     @Column(nullable = false)
     private OnlineStatus onlineStatus;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id", unique = true)
+    private CarDO car;
+
 
     private DriverDO()
     {
@@ -69,6 +66,9 @@ public class DriverDO
         this.onlineStatus = OnlineStatus.OFFLINE;
     }
 
+    public CarDO getCar() {
+        return car;
+    }
 
     public Long getId()
     {
