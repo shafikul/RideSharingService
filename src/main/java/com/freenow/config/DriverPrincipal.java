@@ -19,10 +19,14 @@ public class DriverPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.driver.getUsername().equals("ADMIN")){
+        if(this.driver.getUsername().equalsIgnoreCase("ADMIN")){
             return Collections.singleton(new SimpleGrantedAuthority("ADMIN"));
         }
         return Collections.singleton(new SimpleGrantedAuthority("DRIVER"));
+    }
+
+    public Long getId(){
+        return this.driver.getId();
     }
 
     @Override

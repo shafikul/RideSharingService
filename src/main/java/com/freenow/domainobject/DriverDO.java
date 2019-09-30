@@ -130,4 +130,7 @@ public class DriverDO
         this.dateCoordinateUpdated = ZonedDateTime.now();
     }
 
+    public void setCar(CarDO car) {
+        this.car = car;
+    }
 }
