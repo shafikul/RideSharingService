@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/cars")
+@RequestMapping("v1/a/cars")
 public class CarController {
 
     private final CarService carService;

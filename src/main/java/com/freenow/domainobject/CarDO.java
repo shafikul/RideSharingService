@@ -11,6 +11,7 @@ import java.time.ZonedDateTime;
 @Entity
 @Table(name = "cars")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarDO {
