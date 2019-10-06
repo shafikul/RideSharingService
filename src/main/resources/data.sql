@@ -2,19 +2,22 @@
  * CREATE Script for init of DB
  */
 
--- Create 2 cars
+-- Create 3 cars
 insert into cars (car_id, license_plate, seat_count, convertible, rating, engine_type, manufacturer,
  updated_at, date_created, deleted) values(1, 'GA#1216', 8, true, 4.5,'GASOLINE', 'BMW', now(), now(), false);
 
 insert into cars (car_id, license_plate, seat_count, convertible, rating, engine_type, manufacturer,
- updated_at, date_created, deleted) values(2, 'GA#1217', 4, true, 5,'ELECTRIC', 'BMW', now(), now(), true );
+ updated_at, date_created, deleted) values(2, 'GA#1217', 4, true, 5,'ELECTRIC', 'Dialmer', now(), now(), false );
+ 
+ insert into cars (car_id, license_plate, seat_count, convertible, rating, engine_type, manufacturer,
+ updated_at, date_created, deleted) values(3, 'GA#1218', 4, true, 5,'ELECTRIC', 'Dialmer', now(), now(), true );
 
 -- Create 3 OFFLINE drivers
-insert into driver (id, date_created, deleted, online_status, password, username) values (-1, now(), false, 'OFFLINE',
+insert into driver (id, date_created, deleted, online_status, password, username) values (-1, now(), true, 'OFFLINE',
 'password', 'admin');
 
-insert into driver (id, date_created, deleted, online_status, password, username, car_id) values (1, now(), false, 'OFFLINE',
-'driver01pw', 'driver01', 1);
+insert into driver (id, date_created, deleted, online_status, password, username) values (1, now(), false, 'OFFLINE',
+'driver01pw', 'driver01');
 
 insert into driver (id, date_created, deleted, online_status, password, username) values (2, now(), false, 'OFFLINE',
 'driver02pw', 'driver02');
@@ -25,11 +28,11 @@ insert into driver (id, date_created, deleted, online_status, password, username
 
 -- Create 3 ONLINE drivers
 
-insert into driver (id, date_created, deleted, online_status, password, username) values (4, now(), false, 'ONLINE',
-'driver04pw', 'driver04');
+insert into driver (id, date_created, deleted, online_status, password, username, car_id) values (4, now(), false, 'ONLINE',
+'driver04pw', 'driver04', 1);
 
-insert into driver (id, date_created, deleted, online_status, password, username) values (5, now(), false, 'ONLINE',
-'driver05pw', 'driver05');
+insert into driver (id, date_created, deleted, online_status, password, username, car_id) values (5, now(), false, 'ONLINE',
+'driver05pw', 'driver05', 2);
 
 insert into driver (id, date_created, deleted, online_status, password, username) values (6, now(), false, 'ONLINE',
 'driver06pw', 'driver06');

@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * All operations with a car will be routed by this controller.
+ * <p/>
+ */
 @RestController
-@RequestMapping("v1/a/cars")
 public class CarController {
 
     private final CarService carService;
@@ -24,27 +27,26 @@ public class CarController {
         this.carService = carService;
     }
 
-    @GetMapping("/{carId}")
+    @GetMapping("v1/d/cars/{carId}")
     @ResponseStatus(HttpStatus.OK)
     public CarDTO getCarById(@PathVariable long carId) throws EntityNotFoundException {
         return CarMapper.makeCarDTO(carService.find(carId));
     }
 
-    @PostMapping
+    @PostMapping("v1/a/cars")
     @ResponseStatus(HttpStatus.CREATED)
     public CarDTO createCar(@Valid @RequestBody CarDTO carDTO) throws ConstraintsViolationException {
         CarDO carDO = CarMapper.makeCarDO(carDTO);
         return CarMapper.makeCarDTO(carService.create(carDO));
     }
 
-
-    @DeleteMapping("/{carId}")
+    @DeleteMapping("v1/a/cars/{carId}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteCar(@PathVariable long carId) throws EntityNotFoundException {
         carService.delete(carId);
     }
 
-    @GetMapping
+    @GetMapping("v1/p/cars")
     @ResponseStatus(HttpStatus.OK)
     public List<CarDTO> findAllCars() {
         return CarMapper.makeCarDTOList(carService.findAllCars());

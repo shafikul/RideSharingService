@@ -1,12 +1,15 @@
 package com.freenow.dataaccessobject;
 
-import com.freenow.domainobject.CarDO;
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
+import com.freenow.domainobject.CarDO;
 
 public interface CarRepository extends CrudRepository<CarDO, Long> {
 
-    List<CarDO> findAllByDeletedFalse();
+	List<CarDO> findAllByDeletedFalse();
+
+	CarDO findByIdAndDeletedFalse(Long id);
 
 }

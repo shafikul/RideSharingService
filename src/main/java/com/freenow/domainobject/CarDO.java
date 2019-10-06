@@ -9,7 +9,8 @@ import javax.validation.constraints.NotNull;
 import java.time.ZonedDateTime;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "cars",
+uniqueConstraints = @UniqueConstraint(name = "uc_license_plate", columnNames = {"license_plate"}))
 @Data
 @Builder
 @NoArgsConstructor
@@ -30,6 +31,7 @@ public class CarDO {
     private Integer seatCount;
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean convertible = false;
 
     @Column(nullable = false)
@@ -45,13 +47,16 @@ public class CarDO {
 
     @Column(name = "updated_at")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Builder.Default
     private ZonedDateTime updatedAt = ZonedDateTime.now();
 
     @Column(nullable = false, name = "date_created")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Builder.Default
     private ZonedDateTime dateCreated = ZonedDateTime.now();
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean deleted = false;
 
     @OneToOne(mappedBy = "car")
