@@ -23,11 +23,6 @@ You should be aware of the following conventions while you are working on this e
  * TestDrivenDevelopment is a good choice, but it's up to you how you are testing your code.
  * Feel free to use Java as well as Kotlin
  * We do provide code formatter for IntelliJ IDEA and Eclipse in the etc folder
-
-You should commit into a local git repository and include the git repository (.git/) in the upload.
-
-_NOTE: Please DO NOT publish the project, e.g. by uploading it to GitHub or the like!_
-
 ---
 
 

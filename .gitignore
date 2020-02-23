@@ -24,3 +24,5 @@ money-transfer-rest-api.iml
 !/.mvn/wrapper/maven-wrapper.jar
 /.mvn
 etc/
+/etc/
+etc/*
