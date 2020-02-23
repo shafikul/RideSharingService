@@ -1,7 +1,7 @@
-# FREE NOW backend applicant test
+# BMW RideSharing Application
 
 ## Task Description
-You should be able to start the example application by executing com.freenow.FreeNowServerApplicantTestApplication, which starts a webserver on port 8080 (http://localhost:8080) and serves SwaggerUI where can inspect and try existing endpoints.
+You should be able to start the example application by executing com.freenow.BMWServerApplication, which starts a webserver on port 8080 (http://localhost:8080) and serves SwaggerUI where can inspect and try existing endpoints.
 
 The project is based on a small web service which uses the following technologies:
 
@@ -67,10 +67,3 @@ Secure the API so that authentication is needed to access it. The details are up
 Please include instructions how to authenticate/login, so that we can test the endpoints you implemented!
 
 ---
-
-Good luck!
-❤️ FREE NOW
-
-
-
-_NOTE: Please make sure to not submit any personal data with your tests result. Personal data is for example your name, your birth date, email address etc._
